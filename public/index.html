@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dice Casino Royale</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="casino-bg">
+
+  <div id="loginScreen" class="glass-card">
+    <h1>🎲 Dice Casino Royale</h1>
+    <p class="subtitle">Luxury Virtual Coin Casino</p>
+
+    <input id="playerName" type="text" placeholder="Enter In-game Name">
+
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <button onclick="enterGame()">Enter Casino</button>
+  </div>
+
+  <div id="dashboard" class="glass-card hidden">
+    <h1>Welcome, <span id="showName"></span></h1>
+    <div class="wallet">💰 Coins: <span id="coins">1000</span></div>
+
+    <button onclick="playWithBot()">🤖 Play With Bot</button>
+    <button onclick="createRoom()">🌐 Create Multiplayer Room</button>
+
+    <input id="roomInput" type="text" placeholder="Enter Room Code">
+    <button onclick="joinRoom()">Join Room</button>
+  </div>
+
+  <div id="gameScreen" class="glass-card game-card hidden">
+    <h1>🎲 Dice Battle</h1>
+
+    <h3 id="roomCodeText"></h3>
+    <p id="status">Choose number, place bet, roll dice</p>
+
+    <div class="wallet">💰 Coins: <span id="gameCoins">1000</span></div>
+
+    <input id="chosenNumber" type="number" min="1" max="12" placeholder="Choose Number 1 - 12">
+    <input id="betAmount" type="number" placeholder="Enter Bet Amount">
+
+    <div class="dice-area">
+      <div class="dice" id="dice1">⚀</div>
+      <div class="dice" id="dice2">⚀</div>
+    </div>
+
+    <h2>Total: <span id="diceTotal">0</span></h2>
+
+    <button onclick="playRound()">ROLL DICE</button>
+    <button class="secondary" onclick="goBack()">Back</button>
+  </div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
